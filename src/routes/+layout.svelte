@@ -17,7 +17,7 @@
 			<a href="/about">About me</a>
 			<a href="/projects">Projects</a>
 			<a href="/loves">Things I love</a>
-			<a href="/posts">Posts</a>
+			<a href="/blog">Posts</a>
 		</div>
 	{/if}
 	<div class="content">
@@ -33,7 +33,7 @@
 	}
 
 	.main {
-		margin: 5em auto 0;
+		margin: 5em auto;
 		width: 50%;
 		max-width: 600px;
 	}
