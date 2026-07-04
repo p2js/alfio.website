@@ -1,0 +1,17 @@
+@font-face {
+    font-family: Helvetica;
+    src: url('/fonts/Helvetica/Helvetica.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Helvetica;
+    src: url('/fonts/Helvetica/Helvetica-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'ITC Lubalin Graph';
+    src: url('/fonts/ITC Lubalin Graph/ITC Lubalin Graph Std Demi.ttf');
+    font-weight: bold;
+}
