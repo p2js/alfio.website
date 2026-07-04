@@ -1,0 +1,9 @@
+[submodule "static/projects/pgimg"]
+	path = static/web/pgimg
+	url = https://github.com/p2js/pgimg
+[submodule "static/web/televideo"]
+	path = static/web/televideo
+	url = https://github.com/p2js/televideo-web
+[submodule "static/web/shaditor"]
+	path = static/web/shaditor
+	url = https://github.com/p2js/shaditor
