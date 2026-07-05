@@ -1,12 +1,3 @@
-/**
- * {
- *   name:
- *   description:
- *   category: "web" | "library" (| "misc")
- *   language: "HTML" | "JavaScript" | "C" | "Rust"
- * }
- */
-
 export const projects = [
     {
         name: "RSFormat",
@@ -124,5 +115,14 @@ console.log(x.match(
         `,
         category: "Library",
         language: "Javascript",
+    },
+    {
+        name: "Shaditor",
+        repo: "p2js/shaditor",
+        description: `
+        Older project from 2022, a client-side browser GLSL shader editor with flexible controls.`,
+        category: "Web",
+        language: "HTML",
+        href: "/projects/web/shaditor",
     },
 ];
