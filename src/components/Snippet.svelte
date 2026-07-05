@@ -48,8 +48,7 @@
     }
 
     .trafficLight {
-        margin-left: -4px;
-        height: 30px;
+        margin: 10px -4px 10px;
         display: flex;
         align-items: center;
     }
