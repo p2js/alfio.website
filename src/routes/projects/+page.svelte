@@ -60,7 +60,7 @@
         color: #0864c7;
         font: inherit;
     }
-    div {
+    main {
         margin: auto;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -68,7 +68,7 @@
     }
 
     @media only screen and (max-width: 800px) {
-        div {
+        main {
             grid-template-columns: 1fr;
         }
     }

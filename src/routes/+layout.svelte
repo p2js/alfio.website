@@ -11,21 +11,33 @@
 	<title>{page.data.title || "Error"} | alfiot.net</title>
 </svelte:head>
 
+<a class="navskip" href="#main-content">Skip to content</a>
+
 <div class="main">
 	{#if page.data.show_nav}
-		<div class="navbar">
+		<nav>
 			<a href="/about">About me</a>
 			<a href="/projects">Projects</a>
 			<a href="/loves">Things I love</a>
-			<a href="/blog">Posts</a>
-		</div>
+			<!-- <a href="/blog">Posts</a> -->
+		</nav>
 	{/if}
-	<div class="content">
-		{@render children()}
-	</div>
+	{@render children()}
 </div>
 
 <style>
+	.navskip {
+		position: absolute;
+		top: 1em;
+		left: 1em;
+		width: 0;
+		overflow: hidden;
+	}
+
+	.navskip:focus {
+		width: max-content;
+	}
+
 	:root {
 		font-family: Helvetica, sans-serif;
 		background-color: #f2f0e3;
@@ -34,15 +46,15 @@
 
 	.main {
 		margin: 5em auto;
-		width: 50%;
-		max-width: 600px;
+		width: 55%;
+		max-width: 650px;
 	}
 
-	.navbar {
+	nav {
 		float: right;
 		text-align: end;
 	}
-	.navbar > a {
+	nav > a {
 		display: block;
 		line-height: 1.3em;
 	}
