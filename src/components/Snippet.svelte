@@ -32,16 +32,19 @@
 
 <style>
     .root {
-        min-width: calc(var(--width) - 2em);
+        display: flex;
+        flex-direction: column;
+        min-width: calc(var(--width, 100%) - 2em);
         background-color: #263238;
         border-radius: 10px;
-        padding: 0.5em 1em;
+        padding: 0.5em 1em 0;
         filter: drop-shadow(0 0 0.5em #0006);
         line-height: 1.5em;
+        font-size: var(--font-size, 14px);
     }
 
     .root[wrap="true"] {
-        width: calc(var(--width) - 2em);
+        width: calc(var(--width, 100%) - 2em);
     }
 
     .trafficLight {
@@ -50,6 +53,7 @@
         display: flex;
         align-items: center;
     }
+
     /* For a copy button which I may implement later */
     /*
     .trafficLight > button {
@@ -78,6 +82,10 @@
         background: #eee;
         margin: 0 4px;
         border-radius: 100%;
+    }
+
+    .root :global(.shiki) {
+        margin-top: 0.5em;
     }
 
     .root[wrap="true"] :global(.shiki) {
