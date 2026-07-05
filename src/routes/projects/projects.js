@@ -84,7 +84,7 @@ console.log(x.match(
         description: `
         Runtime-safe alternative to Typescript enums that maintains type safety and ergonomics.
         Each variant is stored as a unique object rather than a number at runtime which allows for
-        more resiliency and some extra features, while intellisese still works as normal.
+        more resiliency and some extra features, while intellisense still works as normal.
         `,
         category: "Library",
         language: "Javascript",
@@ -98,8 +98,9 @@ console.log(x.match(
     {
         name: "cpk",
         repo: "p2js/cpk",
-        description: `
-        Modern TOML-based dependency manager and project runner for C, designed around unity builds.
+        description: `        
+        Modern TOML-based dependency manager and project runner for C, 
+        designed around unity (one-file) builds.
         Inspired by Rust's cargo.
         `,
         category: "Misc",
@@ -120,7 +121,8 @@ console.log(x.match(
         name: "Shaditor",
         repo: "p2js/shaditor",
         description: `
-        Older project from 2022, a client-side browser GLSL shader editor with flexible controls.`,
+        Older project from 2022, a client-side browser GLSL shader editor with flexible controls.
+        `,
         category: "Web",
         language: "HTML",
         href: "/projects/web/shaditor",
