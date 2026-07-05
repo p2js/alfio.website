@@ -15,9 +15,3 @@
 {/if}
 
 <a href="/">Back to the fun</a>
-
-<style>
-    h1 {
-        font-family: "ITC Lubalin Graph";
-    }
-</style>

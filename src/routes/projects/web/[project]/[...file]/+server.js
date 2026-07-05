@@ -25,10 +25,7 @@ export function GET({ params }) {
         return serveFile(rootPath, project);
     }
 
-    return new Response(null, {
-        status: 302,
-        headers: { Location: `/notfound` },
-    });
+    error(404, "Not Found");
 }
 
 function serveFile(path, project) {
@@ -51,6 +48,8 @@ function serveFile(path, project) {
         json: "application/json",
         webp: "image/webp",
         gif: "image/gif",
+        txt: "text/plain",
+        md: "text/markdown",
     };
 
     return new Response(data, {
