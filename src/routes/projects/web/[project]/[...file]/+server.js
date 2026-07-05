@@ -35,18 +35,9 @@ function serveFile(path, project) {
     let data = readFileSync(path);
     const ext = path.split(".").pop();
 
-    // Only rewrite HTML
+    // Force relative asset paths for HTML files
     if (ext === "html") {
-        // Force relative asset paths
-        data = data.toString("utf8").replaceAll(/(href|src)="\.?\/?([^"]+)"/g, (match, attr, value) => {
-            // Skip external URLs
-            if (value.startsWith("http") || value.startsWith("//")) {
-                return match;
-            }
-
-            // Rewrite to absolute project path
-            return `${attr}="/projects/web/${project}/${value}"`;
-        });
+        data = data.toString("utf8").replace("<head>", `<head><base href="/projects/web/${project}/">`);
     }
 
     const types = {
