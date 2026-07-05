@@ -4,11 +4,23 @@
 	import "$lib/assets/fonts.css";
 
 	let { children } = $props();
+	let sitename = "alfiot.net";
+	let title = `${page.data.title || "Error"} | ${sitename}`;
+	let description = page.data.description;
+	let type = page.data.type || "website";
 </script>
 
 <svelte:head>
+	<title>{title}</title>
+	<meta property="og:title" content={title} />
+	<meta property="og:type" content={type} />
+	<meta property="og:url" content={page.url.href} />
+	<meta property="og:site_name" content={sitename} />
+	<meta property="og:description" content={description} />
+	<meta name="description" content={description} />
+	<meta name="theme-color" content="#f2f0e3" />
 	<link rel="icon" href={favicon} />
-	<title>{page.data.title || "Error"} | alfiot.net</title>
+	<link rel="canonical" href={page.url.href} />
 </svelte:head>
 
 <a class="navskip" href="#main-content">Skip to content</a>
