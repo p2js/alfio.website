@@ -37,7 +37,22 @@
 </p>
 
 <hr />
+<div>
+    {#each showProjects as project}
+        <Project {...project} />
+    {/each}
+</div>
 
-{#each showProjects as project}
-    <Project {...project} />
-{/each}
+<style>
+    div {
+        width: 75%;
+        margin: auto;
+        margin-top: 2em;
+    }
+
+    @media only screen and (max-width: 800px) {
+        div {
+            width: 90% !important;
+        }
+    }
+</style>

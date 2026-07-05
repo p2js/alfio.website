@@ -8,7 +8,7 @@
     let html = $state("");
 
     $effect(async () => {
-        html = await highlight(code, language);
+        html = await highlight(code, language.toLowerCase());
     });
 
     const trafficLightColors = [
@@ -32,7 +32,7 @@
 
 <style>
     .root {
-        min-width: var(--width);
+        min-width: calc(var(--width) - 2em);
         background-color: #263238;
         border-radius: 10px;
         padding: 0.5em 1em;
@@ -41,23 +41,36 @@
     }
 
     .root[wrap="true"] {
-        width: var(--width);
-    }
-
-    @media only screen and (max-width: 800px) {
-        .root {
-            width: 90% !important;
-        }
+        width: calc(var(--width) - 2em);
     }
 
     .trafficLight {
         margin-left: -4px;
-        width: 80px;
         height: 30px;
         display: flex;
-        justify-content: flex-start;
         align-items: center;
     }
+    /* For a copy button which I may implement later */
+    /*
+    .trafficLight > button {
+        margin-left: auto;
+        margin-right: -0.5em;
+        padding: 0.6em 0.5em 0.5em;
+        display: none;
+        background-color: transparent;
+        color: #546e7a;
+        border: none;
+        border-radius: 10px;
+        font-family: "Consolas Ligaturized V3";
+    }
+
+    .trafficLight > button:hover {
+        background-color: #34444c;
+    }
+
+    .root:hover button {
+        display: inline;
+    } */
 
     .trafficLight > span {
         width: 10px;

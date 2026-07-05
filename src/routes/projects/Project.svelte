@@ -5,26 +5,46 @@
         $props();
 </script>
 
-<h2>{name}</h2>
-<p>{description}</p>
+<div>
+    <h2>{name}</h2>
+    <p>
+        {description}
+        <br />
+        {#if href}
+            <a {href} target="_blank" rel="noreferrer">link</a> -
+        {/if}
+        {#if repo}
+            <a
+                href={`https://github.com/${repo}`}
+                target="_blank"
+                rel="noreferrer"
+            >
+                View on Github
+            </a>
+        {/if}
+    </p>
 
-{#if snippet}
-    <Snippet
-        wrap
-        --width="75%"
-        language={language.toLowerCase()}
-        code={snippet}
-    />
-{/if}
+    <div class="showcase">
+        {#if snippet}
+            <Snippet wrap --width="100%" {language} code={snippet} />
+        {:else if thumbnail}
+            <img src={thumbnail} alt={`Project thumbnail for ${name}`} />
+        {/if}
+    </div>
+</div>
 
-<p>
-    {#if repo}
-        <a href={`https://github.com/${repo}`} target="_blank" rel="noreferrer">
-            View on Github
-        </a>
-    {/if}
+<style>
+    .showcase {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-    {#if href}
-        <a {href} target="_blank" rel="noreferrer">link</a>
-    {/if}
-</p>
+    img {
+        max-width: 100%;
+        filter: drop-shadow(0 0 0.3em #0006);
+    }
+    br {
+        margin-bottom: 0.5em;
+    }
+</style>
