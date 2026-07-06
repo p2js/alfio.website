@@ -5,9 +5,9 @@
 
 	let { children } = $props();
 	let sitename = "alfiot.net";
-	let title = `${page.data.title || "Error"} | ${sitename}`;
-	let description = page.data.description;
-	let type = page.data.type || "website";
+	let title = $derived(`${page.data.title || "Error"} | ${sitename}`);
+	let description = $derived(page.data.description);
+	let type = $derived(page.data.type || "website");
 </script>
 
 <svelte:head>
@@ -17,10 +17,23 @@
 	<meta property="og:url" content={page.url.href} />
 	<meta property="og:site_name" content={sitename} />
 	<meta property="og:description" content={description} />
+	<meta property="og:locale" content="en_GB" />
 	<meta name="description" content={description} />
 	<meta name="theme-color" content="#f2f0e3" />
 	<link rel="icon" href={favicon} />
 	<link rel="canonical" href={page.url.href} />
+	{#if type === "article"}
+		<meta property="article:published_time" content={page.data.published} />
+		{#if page.data.last_modified}
+			<meta
+				property="article:modified_time"
+				content={page.data.last_modified}
+			/>
+		{/if}
+		<meta property="article:section" content={page.data.section} />
+		<meta property="article:publisher" content={`https://${sitename}`} />
+		<meta property="article:tags" content={page.data.category} />
+	{/if}
 </svelte:head>
 
 <a class="navskip" href="#main-content">Skip to content</a>
