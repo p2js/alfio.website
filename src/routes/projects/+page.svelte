@@ -5,12 +5,14 @@
     const categories = new Set(projects.map((p) => p.category));
     const languages = new Set(projects.map((p) => p.language));
 
-    let show = $state("");
+    let { data } = $props();
 
     let showProjects = $derived(
         projects.filter(
             (project) =>
-                !show || show === project.category || show === project.language,
+                !data.filter ||
+                data.filter === project.category ||
+                data.filter === project.language,
         ),
     );
 </script>
@@ -28,18 +30,14 @@
 
 <p>
     Filter by category:
-    <button onclick={() => (show = "")}>
-        All
-    </button>{#each categories as category},
-        <button onclick={() => (show = category)}>{category}</button>
+    <a href="?">All</a>{#each categories as category},
+        <a href={`?filter=${category}`}>{category}</a>
     {/each}
 </p>
 <p>
     Or by language:
-    <button onclick={() => (show = "")}>
-        All
-    </button>{#each languages as language},
-        <button onclick={() => (show = language)}>{language}</button>
+    <a href="?">All</a>{#each languages as language},
+        <a href={`?filter=${language}`}>{language}</a>
     {/each}
 </p>
 
@@ -50,16 +48,6 @@
 </main>
 
 <style>
-    button {
-        margin: 0;
-        padding: 0;
-        cursor: pointer;
-        text-decoration: underline;
-        background: none;
-        border: none;
-        color: #0864c7;
-        font: inherit;
-    }
     main {
         margin: auto;
         display: grid;
