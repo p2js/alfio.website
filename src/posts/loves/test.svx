@@ -1,0 +1,9 @@
+---
+title: The Nissan S-Cargo
+description: The weirdest, wonderfulest little car.
+published: 2026-07-06T19:00:00.000Z
+last_modified: 2026-07-06T19:00:00.000Z
+category: Cars
+---
+
+Good morning the article body is here.
