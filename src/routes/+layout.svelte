@@ -5,9 +5,10 @@
 
 	let { children } = $props();
 	let sitename = "alfiot.net";
-	let main_title =
+	let main_title = $derived(
 		(page.data.title || "Error") +
-		(page.data.type === "article" ? ` - ${page.data.section}` : "");
+			(page.data.type === "article" ? ` - ${page.data.section}` : ""),
+	);
 	let title = $derived(`${main_title} | ${sitename}`);
 	let description = $derived(page.data.description);
 	let type = $derived(page.data.type || "website");
