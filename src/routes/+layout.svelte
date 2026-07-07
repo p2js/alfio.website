@@ -5,14 +5,17 @@
 
 	let { children } = $props();
 	let sitename = "alfiot.net";
-	let title = $derived(`${page.data.title || "Error"} | ${sitename}`);
+	let main_title =
+		(page.data.title || "Error") +
+		(page.data.type === "article" ? ` - ${page.data.section}` : "");
+	let title = $derived(`${main_title} | ${sitename}`);
 	let description = $derived(page.data.description);
 	let type = $derived(page.data.type || "website");
 </script>
 
 <svelte:head>
 	<title>{title}</title>
-	<meta property="og:title" content={title} />
+	<meta property="og:title" content={main_title} />
 	<meta property="og:type" content={type} />
 	<meta property="og:url" content={page.url.href} />
 	<meta property="og:site_name" content={sitename} />

@@ -1,25 +1,17 @@
 <script>
     const { data } = $props();
 
-    let { title, published, last_modified, category, Content, section } =
+    let { title, published, last_modified, category, section, Content, route } =
         $derived(data);
-
-    $inspect(section);
-
-    let back_to_route = $derived(
-        section === "Things I love" ? "/loves" : "/blog",
-    );
 
     function format(date) {
         return date.split("T")[0].replaceAll("-", "/");
     }
 </script>
 
-<a href={back_to_route}>{section}</a>
-
 <article>
     <header>
-        <p>{category}</p>
+        <p><a href={route}>{section}</a> / {category}</p>
         <h1>{title}</h1>
         <p>
             Published {format(published)}
@@ -41,24 +33,27 @@
 </article>
 
 <style>
-    header {
-        margin: 2em 0;
-    }
-
     h1 {
-        margin-top: 0;
-        margin-bottom: 0;
+        margin-top: 0.5em;
+        margin-bottom: 0.2em;
     }
 
     header > p {
         color: #666;
         font-size: 14px;
-        margin-top: 0.5em;
+        margin: 0;
     }
 
     main {
         margin: 2em 0;
-        padding: 1em 0;
-        border-block: 1px solid #555;
+    }
+
+    main::before,
+    main::after {
+        content: "";
+        display: block;
+        border-top: 1px solid #555;
+        width: 12.5%;
+        margin-block: 2em;
     }
 </style>

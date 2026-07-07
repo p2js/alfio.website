@@ -1,10 +1,11 @@
 import { error } from "@sveltejs/kit";
+import { getDetails } from "../../../params/postType.js";
 
 export async function load({ params }) {
     try {
-        let post = await import(`../../../../posts/${params.postType}/${params.post}.svx`);
+        let post = await import(`../../../posts/${params.postType}/${params.post}.svx`);
 
-        let section = params.postType === "blog" ? "Posts" : "Things I love";
+        let { section } = getDetails(params.postType);
 
         if (post.metadata.published) {
             return {
@@ -13,6 +14,7 @@ export async function load({ params }) {
                 show_nav: false,
                 section,
                 Content: post.default,
+                route: `/${params.postType}`,
             };
         }
     } catch (err) {
