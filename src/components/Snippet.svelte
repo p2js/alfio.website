@@ -3,7 +3,7 @@
     import { onMount } from "svelte";
     import { highlight } from "$lib/shiki";
 
-    const { language, code, wrap = false } = $props();
+    const { language, code, wrap = false, style } = $props();
 
     let html = $state("");
 
@@ -18,7 +18,7 @@
     ];
 </script>
 
-<div class="root" {wrap}>
+<div class="root" {wrap} {style}>
     <div class="trafficLight">
         {#each trafficLightColors as [fill, stroke]}
             <span style={`background: ${fill}; border: 0.1px solid ${stroke}`}>

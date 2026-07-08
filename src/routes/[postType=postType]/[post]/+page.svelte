@@ -1,8 +1,19 @@
 <script>
+    import Figure from "../../../components/Figure.svelte";
+
     const { data } = $props();
 
-    let { title, published, last_modified, category, section, Content, route } =
-        $derived(data);
+    let {
+        title,
+        published,
+        last_modified,
+        category,
+        section,
+        cover_image,
+        description,
+        Content,
+        route,
+    } = $derived(data);
 
     function format(date) {
         return date.split("T")[0].replaceAll("-", "/");
@@ -19,6 +30,14 @@
                 — Last modified {format(last_modified)}
             {/if}
         </p>
+        {#if cover_image}
+            <Figure
+                src={cover_image.src}
+                alt={cover_image.alt}
+                {description}
+                credit={cover_image.credit}
+            />
+        {/if}
     </header>
     <main id="main-content">
         <Content />

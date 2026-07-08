@@ -37,6 +37,10 @@
 		<meta property="article:section" content={page.data.section} />
 		<meta property="article:publisher" content={`https://${sitename}`} />
 		<meta property="article:tags" content={page.data.category} />
+		{#if page.data.cover_image}
+			<meta property="og:image" content={page.data.cover_image.src} />
+			<meta property="og:image:alt" content={page.data.cover_image.alt} />
+		{/if}
 	{/if}
 </svelte:head>
 

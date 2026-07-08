@@ -1,9 +1,29 @@
 ---
 title: The Nissan S-Cargo
 description: The weirdest, wonderfulest little car.
+cover_image: 
+    src: /post-images/s-cargo-1.jpg
+    alt: Photo of a Nissan S-Cargo
+    credit: Nissan
 published: 2026-07-06T19:00:00.000Z
-last_modified: 2026-07-06T19:00:00.000Z
+last_modified: 2026-07-10T20:50:00.000Z
 category: Cars
 ---
 
-Telling a client to ignore Lorem Ipsum is a one-time thing. They quit reading it because it doesn’t make sense. Telling a client to ignore draft copy can be a never-ending battle. I show draft copy quite frequently, and in every meeting I usually get a handful of confused questions about it. I’ve had terrible situations where work-in-progress showing draft copy gets passed around to client stakeholders who haven’t participated in review sessions, and then fielded angry phone calls about the “wrong” content appearing in the designs. Show draft copy-I’m not telling you to only use Lorem Ipsum-but make sure you’re prepared to handle the questions, confusion, and even meltdowns that can result. 
+<script>
+    import Figure from "../../components/Figure.svelte";
+    import Snippet from "../../components/Snippet.svelte";
+    const code = `console.log("Hello, World!");`;
+</script>
+
+Telling a client to ignore Lorem Ipsum is a one-time thing. They quit reading it because it doesn’t make sense. Telling a client to ignore draft copy can be a never-ending battle. I show draft copy quite frequently, and in every meeting I usually get a handful of confused questions about it. I’ve had terrible situations where work-in-progress showing draft copy gets passed around to client stakeholders who haven’t participated in review sessions, and then fielded angry phone calls about the “wrong” content appearing in the designs. 
+## Examples
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 2em; margin-block: -1em;">
+    <Figure src="/post-images/s-cargo-1.jpg" alt="Photo of a Nissan S-Cargo" description="Long descriptivitious long descriptivitious, long long long " credit="Nissan, with my humble thanks" />
+    <Figure description="Some javascript code.">
+        <Snippet language="javascript" {code} style="height: 11em;"/>
+    </Figure>
+</div>
+
+These are great examples.
