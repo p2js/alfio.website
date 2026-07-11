@@ -57,6 +57,12 @@
         margin-bottom: 0.2em;
     }
 
+    @media only screen and (max-width: 800px) {
+        h1 {
+            margin-top: 0em;
+        }
+    }
+
     header > p {
         color: #666;
         font-size: 14px;
