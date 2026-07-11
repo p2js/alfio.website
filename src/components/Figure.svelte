@@ -10,8 +10,8 @@
     {/if}
     <figcaption>
         <p>
-            {#if credit}<span>{credit}</span>{/if}
-            {description}
+            {@html description}
+            {#if credit}<i>({credit})</i>{/if}
         </p>
     </figcaption>
 </figure>
@@ -27,14 +27,14 @@
         max-height: 500px;
     }
 
-    figcaption,
-    span {
+    figcaption {
         margin-bottom: 1em;
     }
 
-    span {
-        float: right;
-        font-style: italic;
-        margin-left: 30%;
+    @media only screen and (max-width: 800px) {
+        figcaption,
+        p {
+            margin-bottom: 0;
+        }
     }
 </style>

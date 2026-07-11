@@ -27,7 +27,9 @@
         <p>
             Published {format(published)}
             {#if last_modified}
-                — Last modified {format(last_modified)}
+                <span class="last-modified">
+                    Last modified {format(last_modified)}
+                </span>
             {/if}
         </p>
         {#if cover_image}
@@ -59,7 +61,13 @@
 
     @media only screen and (max-width: 800px) {
         h1 {
-            margin-top: 0em;
+            margin-top: -0.5em;
+        }
+        header span {
+            display: block;
+        }
+        .last-modified::before {
+            display: none;
         }
     }
 
@@ -67,6 +75,10 @@
         color: #666;
         font-size: 14px;
         margin: 0;
+    }
+
+    .last-modified::before {
+        content: " — ";
     }
 
     main {

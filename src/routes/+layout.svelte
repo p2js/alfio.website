@@ -100,18 +100,27 @@
 	:global(a, a:visited) {
 		color: #0864c7;
 	}
+
 	:global(p, li) {
 		line-height: 1.3em;
 	}
 
+	:global(img) {
+		max-width: 100%;
+	}
+
 	@media only screen and (max-width: 800px) {
 		.main {
-			margin: 1em auto 0;
+			margin: 2em auto;
 			min-width: 300px;
+		}
+		nav {
+			text-align: start;
+			width: 100%;
+			margin-bottom: 2em;
 		}
 		:global(h1) {
 			padding-top: 1em;
-			margin-bottom: 1em;
 		}
 	}
 </style>
