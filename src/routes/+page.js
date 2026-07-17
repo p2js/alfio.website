@@ -1,5 +1,7 @@
-import { redirect } from "@sveltejs/kit";
-
 export function load() {
-    redirect(308, "/about");
+    return {
+        show_nav: true,
+        title: "About me",
+        description: "My name is Alfio. Nice to meet you!",
+    };
 }

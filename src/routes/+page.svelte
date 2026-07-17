@@ -35,8 +35,9 @@
             I also enjoy watching endurance racing when I can find the time for it.
         </li>
         <li>
-            <b>Music:</b> I really enjoy listening to and analyzing music. My favourite
-            genres are ambient, jazz and experimental.
+            <b>Music:</b> I really enjoy listening to and analyzing music, most of
+            all music that is sonically or lyrically experimental. My favourite genres
+            are ambient, jazz and hip hop.
         </li>
         <li>
             <b>Urbanism and City Design:</b> While I am by no means an expert, I

@@ -50,7 +50,7 @@
 <div class="main">
 	{#if page.data.show_nav}
 		<nav>
-			<a href="/about">About me</a>
+			<a href="/">About me</a>
 			<a href="/projects">Projects</a>
 			{#each Object.entries(postType) as [type, { section }]}
 				<a href={`/${type}`}>{section}</a>
