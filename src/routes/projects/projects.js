@@ -103,7 +103,7 @@ console.log(x.match(
         designed around unity (one-file) builds.
         Inspired by Rust's cargo.
         `,
-        category: "Misc",
+        category: "Miscellaneous",
         language: "C",
     },
     {
