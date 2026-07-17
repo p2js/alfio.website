@@ -45,7 +45,10 @@
         <Content />
     </main>
     <footer>
-        <p>Written with love by <a href="/about">Alfio</a>.</p>
+        <p>
+            Thank you for reading. Written with love by
+            <a href="/about">Alfio</a>.
+        </p>
         <p>
             Thoughts?
             <a href="mailto:tomarchioalfio5@gmail.com">e-mail</a> me about them!

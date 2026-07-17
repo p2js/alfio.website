@@ -1,13 +1,10 @@
 export function match(param) {
-    return getDetails(param) !== undefined;
+    return postType[param] !== undefined;
 }
 
-export function getDetails(postType) {
-    switch (postType) {
-        case "loves":
-            return {
-                section: "Things I love",
-                blurb: "yea",
-            };
-    }
-}
+export const postType = {
+    loves: {
+        section: "Things I love",
+        blurb: "yea",
+    },
+};

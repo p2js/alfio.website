@@ -1,6 +1,7 @@
 <script>
 	import { page } from "$app/state";
 	import favicon from "$lib/assets/favicon.svg";
+	import { postType } from "../params/postType";
 	import "$lib/assets/fonts.css";
 
 	let { children } = $props();
@@ -51,8 +52,9 @@
 		<nav>
 			<a href="/about">About me</a>
 			<a href="/projects">Projects</a>
-			<a href="/loves">Things I love</a>
-			<!-- <a href="/blog">Posts</a> -->
+			{#each Object.entries(postType) as [type, { section }]}
+				<a href={`/${type}`}>{section}</a>
+			{/each}
 		</nav>
 	{/if}
 	{@render children()}

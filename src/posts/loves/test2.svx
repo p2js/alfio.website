@@ -1,0 +1,8 @@
+---
+title: The little things
+description: Stopping to smell the roses.
+published: 2025-07-06T19:00:00.000Z
+category: Misc
+---
+
+Telling a client to ignore Lorem Ipsum is a one-time thing. They quit reading it because it doesn’t make sense. Telling a client to ignore draft copy can be a never-ending battle. I show draft copy quite frequently, and in every meeting I usually get a handful of confused questions about it. I’ve had terrible situations where work-in-progress showing draft copy gets passed around to client stakeholders who haven’t participated in review sessions, and then fielded angry phone calls about the “wrong” content appearing in the designs. 

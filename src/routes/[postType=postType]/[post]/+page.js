@@ -1,11 +1,11 @@
 import { error } from "@sveltejs/kit";
-import { getDetails } from "../../../params/postType.js";
+import { postType } from "../../../params/postType.js";
 
 export async function load({ params }) {
     try {
         let post = await import(`../../../posts/${params.postType}/${params.post}.svx`);
 
-        let { section } = getDetails(params.postType);
+        let { section } = postType[params.postType];
 
         if (post.metadata.published) {
             return {
