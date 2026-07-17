@@ -3,7 +3,7 @@ title: The Nissan S-Cargo
 description: The weirdest, wonderfulest little car.
 cover_image: 
     src: /post-images/s-cargo-1.jpg
-    alt: Photo of a Nissan S-Cargo
+    alt: A Nissan S-Cargo
     credit: Nissan
 published: 2026-07-06T19:00:00.000Z
 last_modified: 2026-07-10T20:50:00.000Z
@@ -22,7 +22,7 @@ Telling a client to ignore Lorem Ipsum is a one-time thing. They quit reading it
 
 <Figure description="Long descriptivitious long descriptivitious, long descriptivitious long long. " credit="Nissan, with my humble thanks / Author">
     <Horizontal>
-        <img src="/post-images/s-cargo-1.jpg" alt="Photo of a Nissan S-Cargo">
+        <img src="/post-images/s-cargo-1.jpg" alt="A Nissan S-Cargo">
         <Snippet language="javascript" {code} style="height: 11em;"/>
     </Horizontal>
 </Figure>
