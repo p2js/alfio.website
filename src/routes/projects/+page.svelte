@@ -29,7 +29,7 @@
 </p>
 
 <p>
-    Filter by category:
+    Filter by type:
     <a href="?">All</a>{#each categories as category},
         <a href={`?filter=${category}`}>{category}</a>
     {/each}
