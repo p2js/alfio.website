@@ -3,7 +3,7 @@ import { postType } from "../../../params/postType.js";
 
 export async function load({ params }) {
     try {
-        let post = await import(`../../../posts/${params.postType}/${params.post}.svx`);
+        let post = await import(`../../../docs/${params.postType}/${params.post}.svx`);
 
         let { section } = postType[params.postType];
 

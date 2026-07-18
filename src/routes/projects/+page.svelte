@@ -29,13 +29,13 @@
 </p>
 
 <p>
-    Filter by type:
+    <span class="filter-label">Filter by type:</span>
     <a href="?">All</a>{#each categories as category},
         <a href={`?filter=${category}`}>{category}</a>
     {/each}
 </p>
 <p>
-    Or by language:
+    <span class="filter-label">Or by language:</span>
     <a href="?">All</a>{#each languages as language},
         <a href={`?filter=${language}`}>{language}</a>
     {/each}
@@ -56,8 +56,14 @@
     }
 
     @media only screen and (max-width: 800px) {
+        br {
+            display: none;
+        }
         main {
             grid-template-columns: 1fr;
+        }
+        .filter-label {
+            display: block;
         }
     }
 </style>

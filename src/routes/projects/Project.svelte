@@ -18,7 +18,6 @@
     <p>
         {description}
     </p>
-
     <div class="showcase">
         {#if snippet}
             <Snippet

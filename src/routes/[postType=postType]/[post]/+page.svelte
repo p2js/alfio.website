@@ -1,4 +1,5 @@
 <script>
+    import { format } from "$lib/datetime";
     import Figure from "../../../components/Figure.svelte";
 
     const { data } = $props();
@@ -14,21 +15,23 @@
         Content,
         route,
     } = $derived(data);
-
-    function format(date) {
-        return date.split("T")[0].replaceAll("-", "/");
-    }
 </script>
 
 <article>
     <header>
-        <p><a href={route}>{section}</a> / {category}</p>
+        <p class="small"><a href={route}>{section}</a> / {category}</p>
         <h1>{title}</h1>
-        <p>
-            Published {format(published)}
+        <p class="small">
+            Published
+            <time datetime={published}>
+                {format(published)}
+            </time>
             {#if last_modified}
                 <span class="last-modified">
-                    Last modified {format(last_modified)}
+                    Last modified
+                    <time datetime={last_modified}>
+                        {format(last_modified)}
+                    </time>
                 </span>
             {/if}
         </p>
@@ -39,6 +42,8 @@
                 {description}
                 credit={cover_image.credit}
             />
+        {:else}
+            <p>{@html description}</p>
         {/if}
     </header>
     <main id="main-content">
@@ -47,7 +52,7 @@
     <footer>
         <p>
             Thank you for reading. Written with love by
-            <a href="/about">Alfio</a>.
+            <a href="/">Alfio</a>.
         </p>
         <p>
             Thoughts?
@@ -74,7 +79,7 @@
         }
     }
 
-    header > p {
+    .small {
         color: #666;
         font-size: 14px;
         margin: 0;
