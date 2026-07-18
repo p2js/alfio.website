@@ -3,7 +3,7 @@
     import { onMount } from "svelte";
     import { highlight } from "$lib/shiki";
 
-    const { language, code, wrap = false, style } = $props();
+    const { language, code, style } = $props();
 
     let html = $state("");
 
@@ -18,7 +18,7 @@
     ];
 </script>
 
-<div class="root" {wrap} {style}>
+<div class="root" {style}>
     <div class="trafficLight">
         {#each trafficLightColors as [fill, stroke]}
             <span style={`background: ${fill}; border: 0.1px solid ${stroke}`}>
@@ -41,10 +41,6 @@
         filter: drop-shadow(0 0 0.5em #0006);
         line-height: 1.5em;
         font-size: var(--font-size, 14px);
-    }
-
-    .root[wrap="true"] {
-        width: calc(var(--width, 100%) - 2em);
     }
 
     .trafficLight {
@@ -85,15 +81,10 @@
 
     .root :global(.shiki) {
         margin-top: 0.5em;
+        overflow-x: scroll;
     }
 
-    .root[wrap="true"] :global(.shiki) {
-        white-space: pre-wrap;
-        word-break: break-word;
-        overflow-wrap: anywhere;
-    }
-
-    :global(.shiki code) {
+    :global(code) {
         font-family: "Consolas Ligaturized V3";
     }
 </style>

@@ -21,7 +21,6 @@
     <div class="showcase">
         {#if snippet}
             <Snippet
-                wrap
                 --font-size="14px"
                 --width="100%"
                 {language}
