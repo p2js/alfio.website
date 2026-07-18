@@ -43,8 +43,7 @@ println(rs\`\${'a'}:>7\`);
     <p>Hello, {name}!</p>
 </template>
 
-<greeting name="World">
-</greeting>
+<greeting name="World"></greeting>
 <!-- <p>Hello, World!</p> -->`,
     },
     {

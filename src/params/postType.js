@@ -5,11 +5,11 @@ export function match(param) {
 export const postType = {
     loves: {
         section: "Things I love",
-        blurb: "yea",
+        description: "Articles about all types of things, big and small, that bring joy to my life.",
     },
     posts: {
         section: "Posts",
-        blurb: "",
+        description: "",
     },
 };
 

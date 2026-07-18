@@ -19,7 +19,7 @@
 </script>
 
 <h1>{data.title}</h1>
-<p>{@html data.blurb}</p>
+<p>{@html data.description}</p>
 
 <p>
     <span class="filter-label">Filter by category:</span>

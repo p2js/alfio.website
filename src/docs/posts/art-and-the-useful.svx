@@ -6,13 +6,10 @@ description: >
 published: 2023-11-22T20:00:00Z
 category: Translation
 ---
-<style>
-    hr {
-        width: 12.5%;
-        display: block;
-        margin-block: 2em;
-    }
-</style>
+
+<script>
+    import Divider from "../../components/blog/Divider.svelte"
+</script>
 
 *The original talk can be found [here](https://www.youtube.com/watch?v=ZtCAt0EyPF4).*
 
@@ -44,7 +41,7 @@ In one of [his most famous interviews](https://www.youtube.com/watch?v=1My7T3Wwx
 
 This concept will become clear along the way. But for now, here I am. I came out into the open, my name is Marco Anastasio, and this talk is titled _Art and Utility_. That was just the preface.
 
-<hr/>
+<Divider />
 
 Art, and utility. They are two nice little words, that would deserve a definition. 
 
@@ -70,7 +67,7 @@ Have you ever felt like an object?
 
 Personally, I have. In my albeit short career as an artist in particular, I have had to deal with every one of these things. I have had to deal with the danger of becoming an object in the eyes of others, with their constant judgment imparted to me daily; I have had to deal with the problem of being exploited, of becoming a commodity of exchange in the various games of power and business of this world. This is brutal to experience, it's a paradox; For I would like from music to be saved from these very things. I know that art, in general, is the biggest expression of liberty that the human can grant himself - directly clashing with the fact that art, for me, is a profession, and on its success depends what I'll have on table come the evening. That's what utility is. Adam and Eve, Genesis 3:19: *By the sweat of your face you shall eat bread*. In other words, Adam, you wanted a bike? Now, pedal.
 
-<hr/>
+<Divider />
 
 Art and utility are nowadays an inseparable couple, to the point that the contemporary artist is judged, more than for his art, for his success. This irremediably pollutes the artist. Pasolini said that art is not a good because it is not consumed, and I would like to add that in my opinion, art is not a good because it cannot be sold - it can only be *gifted*. What is sold is always a simulacrum, fundamentally different. 
 
@@ -84,7 +81,7 @@ So, young artist in the room with us, if you are listening to me, free your art 
 
 I don't know whether that will bring results your way, that's a separate topic. Success, fame - yeah, sure. Maybe those will come with time, in all likelihood they won't. But you will be free, a revolutionary - that's already an accomplishment, or so it seems to me.
 
-<hr/>
+<Divider />
 
 This revolution I keep raving about, in truth, has come before. There have been several, in fact, a very famous example being the [protests of 1968](https://en.wikipedia.org/wiki/Protests_of_1968), where an entire generation went on strike. There is a more interesting case, however - Not because it's less known, but because precisely the aspect of it most pertinent to our topic is often ignored. I'm talking about [the one in 1848](https://en.wikipedia.org/wiki/Revolutions_of_1848). If you don't know, in 1848 in Europe, a whole collection of revolutions raged. Even today, in Italian we still use the phrase "È successo un '48" to refer to chaotic events _(note: lit. "a '48 happened")_.
 
