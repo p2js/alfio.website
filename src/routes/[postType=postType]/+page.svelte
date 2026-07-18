@@ -12,8 +12,8 @@
             .filter((post) => !data.filter || data.filter === post.category)
             .sort(
                 (p1, p2) =>
-                    Date.parse(p1.published).valueOf() -
-                    Date.parse(p2.published).valueOf(),
+                    Date.parse(p2.published).valueOf() -
+                    Date.parse(p1.published).valueOf(),
             ),
     );
 </script>
