@@ -19,8 +19,9 @@
 </script>
 
 <h1>{data.title}</h1>
-<p>{@html data.description}</p>
-
+{#if data.description}
+    <p>{@html data.description}</p>
+{/if}
 <p>
     <span class="filter-label">Filter by category:</span>
     <a href="?">All</a>{#each categories as category},
@@ -48,12 +49,8 @@
 
 <style>
     .post {
-        margin-block: 2em;
-    }
-    .post {
         display: block;
-        /* display: grid;
-        grid-template-columns: 1fr max-content; */
+        margin-block: 2em;
         color: black;
         text-decoration: none;
     }
@@ -68,7 +65,7 @@
         text-decoration: underline;
     }
     .post h2 {
-        margin-block: 0.75em;
+        margin-block: 0.5em;
     }
     .post span {
         color: #666;
@@ -78,10 +75,21 @@
         float: right;
         max-height: 100px;
     }
-
     @media only screen and (max-width: 800px) {
         .filter-label {
             display: block;
+        }
+        #main-content {
+            margin-top: 2em;
+        }
+        .post {
+            margin-block: 1em;
+        }
+        .post h2 {
+            font-size: 1.25em;
+        }
+        .post::before {
+            margin-bottom: 1em;
         }
         img {
             display: block;

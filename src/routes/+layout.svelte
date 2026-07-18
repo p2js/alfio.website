@@ -117,8 +117,6 @@
 			min-width: 300px;
 		}
 		nav {
-			text-align: start;
-			width: 100%;
 			margin-bottom: 2em;
 		}
 		:global(h1) {
