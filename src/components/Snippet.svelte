@@ -38,7 +38,6 @@
         background-color: #263238;
         border-radius: 10px;
         padding: 0.5em 1em 0;
-        filter: drop-shadow(0 0 0.5em #0006);
         line-height: 1.5em;
         font-size: var(--font-size, 14px);
     }

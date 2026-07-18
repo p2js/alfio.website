@@ -49,6 +49,5 @@
 
     img {
         max-width: 100%;
-        filter: drop-shadow(0 0 0.2em #0006);
     }
 </style>
