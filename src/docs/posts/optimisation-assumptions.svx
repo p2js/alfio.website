@@ -1,0 +1,67 @@
+---
+title: Optimisation is about assumptions
+description: Thoughts on the philosophy of source code optimisation.
+published: 2026/07/18T20:33:00Z
+category: Programming
+---
+
+<script>
+    import Snippet from "../../components/Snippet.svelte"
+</script>
+
+At its innermost philosophical core, the act of programming is the act of declaring intent through syntax. The engineer writes code to loosely describe to their computer (and other engineers) what they want to achieve, and the compiler/interpreter does the boring job of inferring the right machine code to get there, giving the CPU a much more pragmatic set of instructions.
+
+Viewed through this lens, source code optimisation becomes about assuming (and leveraging) a separation between that imperative syntax and its underlying semantic intent.
+
+Consider the following simple Javascript loop as a guiding example:
+
+
+<Snippet language="javascript" code={`
+let messages = ["message1", "message2", "message3"];
+for(let message of messages) {
+    console.log(message);
+}`.trim()}/>
+
+Strictly syntactically speaking, this code declares intent to initialise an array of 3 strings, iterate through the array in a loop (using `for..of`), and log each string to the console. To rewrite this snippet and make it more efficient at doing its job, an optimiser must make some significant assumptions about which specific parts of that intent are the program's goal, and which ones are just syntactic means to that end. What *is* the job to do more efficiently?
+
+Suppose that this code's job is to log the messages in the array to the console. If the code was targeting node, it could then be optimised as follows:
+
+<Snippet language="javascript" code={`let messages = ["message1", "message2", "message3"];
+for(let i = 0; i < 3; i++) {
+    process.stdout.write(messages[i] + "\\n");
+}`.trim()}/>
+
+This code changes nothing in terms of our presumed goal, the console output is identical. But this interpretation implies that some behaviour in the original code is not a meaningful part of the intention, namely:
+
+- The iterator protocol that `for..of` builds upon
+- Accessing the length of the array at runtime rather than precomputing it
+- All the work done by `console.log` (string conversion, formatting, groups...)
+- Cross-compatibility with environments like the web, which don't have access to `process.stdout`
+
+Optimising even more aggressively:
+
+<Snippet language="javascript" code={`
+process.stdout.write("message1\\n");
+process.stdout.write("message2\\n");
+process.stdout.write("message3\\n");
+`.trim()}/>
+
+...requires assuming that the loop and the array were themselves an implementation detail to achieve the purpose of printing messages to the screen, rather than part of the purpose of the code. 
+
+These assumptions could be invalid. The array could have other purposes later on in the program (such as a function that pushes to the array nondeterministically), which affects the meaningfulness of its existence. Even the initial supposition of the program's purpose is itself an assumption; If the author was instead trying to test a custom implementation of `console.log` or studying the memory footprint of iterator loops in node.js, then these optimisations completely go against what the code is trying to achieve. 
+
+The point is not that these are not assumptions worth making in a real optimising scenario (they absolutely are). This is a very contrived, pedagogical example to illustrate the extent to which code intention is ambiguous. An algorithmic optimiser must make these sorts of assumptions all the time, with real implications. Here are some more examples:
+
+- When encountering an assignment like `x = x`, does its mere presence imply that it has some sort of stateful effect and should be left there? Is it always safe to remove? If not, how much context is needed to guarantee that it is?
+- If a file exports a function, is that function meant to be called by arbitrary code outside the codebase rather than just internally? If so, what assumptions can be safely made about how it will be used? 
+- Is the author of a library ok with forgoing type coercion of certain variables or expressions at the expense of hard-crashing if the wrong type of argument is passed? Will the users of the library also accept this trade-off?
+- Is this object just intended to be a grouping of values, or is the intention to actually have an object allocated in the code (for purposes such as runtime reflection)?
+- Will inlining this value affect its runtime observability?
+
+The reason that these questions are so difficult to answer algorithmically is that the higher-level intent of a program is, in any other scenario, unnecessary to communicate to the computer. In fact, programming languages are often designed around delegating purpose to a separate world of code comments and documentation built to be ignored by tooling. If done well, concerns are clearly separated: Readers worry themselves with understanding the intent of the code, and the dirty work of solving the problem is offloaded to syntax, the unburdened lingua franca. Optimisers are tasked with gaining an understanding of the former while being blind to it, only being able to speak the latter.
+
+Building a good optimiser, therefore, means navigating a sea of assumptions very carefully; constantly questioning suppositions about semantics and applying sound judgement about what can be altered. 
+
+There are certain techniques or philosophies that can be applied to guide these decisions. For example, the general assumption can be made that if any functionality is not explicitly used, it is not part of the intention of the program: In the `x = x` example, unless assignment to `x` or the ambient object is made explicitly stateful through a Proxy or setter, then this philosophy deems it removable. Another strategy would be to throw any good-faith assumptions about the code out of the window the moment you see any suspicious code, such as `eval` calls or the aforementioned Proxy setters.
+
+These judgements will place an optimiser on a spectrum with two extreme ends: the ultimately conservative optimiser that leaves everything untouched, and the ultimately aggressive optimiser that assumes nothing about a program's behaviour is important or meaningful, and removes it all.
