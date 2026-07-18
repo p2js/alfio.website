@@ -1,6 +1,6 @@
 ---
 title: Optimisation is about assumptions
-description: Thoughts on the philosophy of source code optimisation.
+description: Some thoughts on the philosophical side of source code optimisation.
 published: 2026-07-18T20:33:00Z
 category: Programming
 ---

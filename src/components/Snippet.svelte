@@ -5,7 +5,8 @@
 
     const { language, code, style } = $props();
 
-    let html = $state("");
+    // svelte-ignore state_referenced_locally
+    let html = $state(`<pre>${code}</pre>`);
 
     $effect(async () => {
         html = await highlight(code, language.toLowerCase());
