@@ -49,6 +49,7 @@
 
 <style>
     .post {
+        position: relative;
         display: block;
         margin-block: 2em;
         color: black;
@@ -72,9 +73,16 @@
         font-size: 14px;
     }
     img {
-        float: right;
-        max-height: 100px;
+        position: absolute;
+        right: 0;
+        max-height: calc(100% - 1em);
+        max-width: 40%;
     }
+    .post:has(> img) h2,
+    .post:has(> img) p {
+        width: 55%;
+    }
+
     @media only screen and (max-width: 800px) {
         .filter-label {
             display: block;
@@ -93,8 +101,14 @@
         }
         img {
             display: block;
-            float: none;
+            position: unset;
             margin-bottom: 1.5em;
+            max-height: 100px;
+            max-width: 100%;
+        }
+        .post:has(> img) h2,
+        .post:has(> img) p {
+            width: 100%;
         }
     }
 </style>

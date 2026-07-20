@@ -101,6 +101,7 @@
 
 	:global(a, a:visited) {
 		color: #0864c7;
+		/* color: #cc5b45; */
 	}
 
 	:global(p, li) {
