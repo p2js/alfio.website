@@ -13,7 +13,7 @@ export const postType = {
     },
 };
 
-const allPosts = Object.entries(import.meta.glob("../docs/*/*"));
+const allPosts = Object.entries(import.meta.glob("../posts/*/*"));
 for (const [route, post] of allPosts) {
     let [type, identifier] = route.split("/").slice(-2);
     if (!postType[type]) continue;
