@@ -1,6 +1,5 @@
 <script>
 	import { page } from "$app/state";
-	import favicon from "$lib/assets/favicon.svg";
 	import { postType } from "../params/postType";
 	import "$lib/assets/fonts.css";
 
@@ -25,7 +24,7 @@
 	<meta property="og:locale" content="en_GB" />
 	<meta name="description" content={description} />
 	<meta name="theme-color" content="#f2f0e3" />
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href="favicon.ico" />
 	<link rel="canonical" href={page.url.href} />
 	{#if type === "article"}
 		<meta property="article:published_time" content={page.data.published} />
