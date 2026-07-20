@@ -5,7 +5,7 @@
 	import "$lib/assets/fonts.css";
 
 	let { children } = $props();
-	let sitename = "alfiot.net";
+	let sitename = "alfio.website";
 	let main_title = $derived(
 		(page.data.title || "Error") +
 			(page.data.type === "article" ? ` - ${page.data.section}` : ""),
