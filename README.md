@@ -7,4 +7,5 @@ Should you want to go digging around the source code for inspiration for your ow
 - Good accessibility and adherence to web standards, with proper use of semantic elements, correct ogp `<meta>` tags and a "skip to content" link
 - Nesting of my static HTML projects (which requires some on-the-fly html rewriting for proper compatibility, but is otherwise quite simple)
 - A mdsvex-based multi-route blog
-- Components for a [carbon.now.sh](https://carbon.now.sh)-inspired code snippet, proper figures and some blog layouts
+- Build-time highlighting of code snippets using shiki and a custom vite plugin
+- Components for a [carbon.now.sh](https://carbon.now.sh)-inspired code snippet component, proper figures and some blog layouts

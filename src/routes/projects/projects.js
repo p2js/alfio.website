@@ -1,3 +1,5 @@
+/** @import {$highlight} from "$lib/static-highlight" */
+
 export const projects = [
     {
         name: "RSFormat",
@@ -9,12 +11,12 @@ export const projects = [
         `,
         category: "Library",
         language: "Javascript",
-        snippet: `let n = 15,
+        snippet: $highlight('javascript', `let n = 15,
 s = rs\`\${n} in hex: \${n}:#X\`;
 // s == "15 in hex: 0xF"
 
 println(rs\`\${'a'}:>7\`);
-// prints "      a"`,
+// prints "      a"`),
     },
     {
         name: "Web Televideo",
@@ -39,12 +41,12 @@ println(rs\`\${'a'}:>7\`);
         `,
         category: "Library",
         language: "HTML",
-        snippet: `<template _="greeting" name>
+        snippet: $highlight('html', `<template _="greeting" name>
     <p>Hello, {name}!</p>
 </template>
 
 <greeting name="World"></greeting>
-<!-- <p>Hello, World!</p> -->`,
+<!-- <p>Hello, World!</p> -->`),
     },
     {
         name: "PGImg",
@@ -66,7 +68,7 @@ println(rs\`\${'a'}:>7\`);
         Type-safe implementation of extremely lightweight option and result types for Typescript and Javascript.`,
         category: "Library",
         language: "Javascript",
-        snippet: `function divide(a,b) {
+        snippet: $highlight('javascript', `function divide(a,b) {
     if (b == 0) return None;
     return Some(a / b);
 }
@@ -75,7 +77,7 @@ let x = divide(1, 2);
 console.log(x.match(
     n => n.toString(),
     () => "Division by 0"
-));`,
+));`),
     },
     {
         name: "unique-enum",
@@ -87,18 +89,18 @@ console.log(x.match(
         `,
         category: "Library",
         language: "Javascript",
-        snippet: `const Direction = Enum(
+        snippet: $highlight('javascript', `const Direction = Enum(
     'North',
     'East',
     'South',
     'West'
-);`,
+);`),
     },
     {
         name: "cpk",
         repo: "p2js/cpk",
-        description: `        
-        Modern TOML-based dependency manager and project runner for C, 
+        description: `
+        Modern TOML-based dependency manager and project runner for C,
         designed around unity (one-file) builds.
         Inspired by Rust's cargo.
         `,
@@ -110,7 +112,7 @@ console.log(x.match(
         repo: "p2js/verbena",
         description: `
         Javascript library that transcompiles mathematical function definitions
-        to native JS functions, in an end-user-safe way. This was my first 
+        to native JS functions, in an end-user-safe way. This was my first
         parser/compiler-related project.
         `,
         category: "Library",

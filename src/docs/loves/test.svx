@@ -14,7 +14,6 @@ category: Cars
     import Figure from "../../components/Figure.svelte";
     import Snippet from "../../components/Snippet.svelte";
     import Horizontal from "../../components/blog/Horizontal.svelte";
-    const code = `console.log("Hello, World!");`;
 </script>
 
 Telling a client to ignore Lorem Ipsum is a one-time thing. They quit reading it because it doesn’t make sense. Telling a client to ignore draft copy can be a never-ending battle. I show draft copy quite frequently, and in every meeting I usually get a handful of confused questions about it. I’ve had terrible situations where work-in-progress showing draft copy gets passed around to client stakeholders who haven’t participated in review sessions, and then fielded angry phone calls about the “wrong” content appearing in the designs. 
@@ -23,7 +22,7 @@ Telling a client to ignore Lorem Ipsum is a one-time thing. They quit reading it
 <Figure description="Long descriptivitious long descriptivitious, long descriptivitious long long. " credit="Nissan, with my humble thanks / Author">
     <Horizontal>
         <img src="/post-images/s-cargo-1.jpg" alt="A Nissan S-Cargo">
-        <Snippet language="javascript" {code} style="height: 11em;"/>
+        <Snippet style="height: 11em;">{@html $highlight('javascript', `console.log("Hello, World!");`)}</Snippet>
     </Horizontal>
 </Figure>
 

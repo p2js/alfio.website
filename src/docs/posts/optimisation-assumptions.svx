@@ -16,20 +16,19 @@ Viewed through this lens, source code optimisation becomes about assuming (and l
 Consider the following simple Javascript loop as a guiding example:
 
 
-<Snippet language="javascript" code={`
-let messages = ["message1", "message2", "message3"];
-for(let message of messages) {
+<Snippet>{@html $highlight('javascript', `let messages = ["message1", "message2", "message3"];
+for (let message of messages) {
     console.log(message);
-}`.trim()}/>
+}`)}</Snippet>
 
 Strictly syntactically speaking, this code declares intent to initialise an array of 3 strings, iterate through the array in a loop (using `for..of`), and log each string to the console. To rewrite this snippet and make it more efficient at doing its job, an optimiser must make some significant assumptions about which specific parts of that intent are the program's goal, and which ones are just syntactic means to that end. What *is* the job to do more efficiently?
 
 Suppose that this code's job is to log the messages in the array to the console. If the code was targeting node, it could then be optimised as follows:
 
-<Snippet language="javascript" code={`let messages = ["message1", "message2", "message3"];
-for(let i = 0; i < 3; i++) {
+<Snippet>{@html $highlight('javascript', `let messages = ["message1", "message2", "message3"];
+for (let i = 0; i < 3; i++) {
     process.stdout.write(messages[i] + "\\n");
-}`.trim()}/>
+}`)}</Snippet>
 
 This code changes nothing in terms of our presumed goal, the console output is identical. But this interpretation implies that some behaviour in the original code is not a meaningful part of the intention, namely:
 
@@ -40,11 +39,9 @@ This code changes nothing in terms of our presumed goal, the console output is i
 
 Optimising even more aggressively:
 
-<Snippet language="javascript" code={`
-process.stdout.write("message1\\n");
+<Snippet>{@html $highlight('javascript', `process.stdout.write("message1\\n");
 process.stdout.write("message2\\n");
-process.stdout.write("message3\\n");
-`.trim()}/>
+process.stdout.write("message3\\n");`)}</Snippet>
 
 ...requires assuming that the loop and the array were themselves an implementation detail to achieve the purpose of printing messages to the screen, rather than part of the purpose of the code. 
 

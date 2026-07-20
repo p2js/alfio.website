@@ -1,16 +1,5 @@
 <script>
-    import { mdsvex } from "mdsvex";
-    import { onMount } from "svelte";
-    import { highlight } from "$lib/shiki";
-
-    const { language, code, style } = $props();
-
-    // svelte-ignore state_referenced_locally
-    let html = $state(`<pre>${code}</pre>`);
-
-    $effect(async () => {
-        html = await highlight(code, language.toLowerCase());
-    });
+    const { style, children } = $props();
 
     const trafficLightColors = [
         ["#FF5F56", "#E0443E"],
@@ -27,7 +16,7 @@
         {/each}
     </div>
     <div class="code">
-        {@html html}
+        {@render children()}
     </div>
 </div>
 
@@ -49,28 +38,6 @@
         align-items: center;
     }
 
-    /* For a copy button which I may implement later */
-    /*
-    .trafficLight > button {
-        margin-left: auto;
-        margin-right: -0.5em;
-        padding: 0.6em 0.5em 0.5em;
-        display: none;
-        background-color: transparent;
-        color: #546e7a;
-        border: none;
-        border-radius: 10px;
-        font-family: "Consolas Ligaturized V3";
-    }
-
-    .trafficLight > button:hover {
-        background-color: #34444c;
-    }
-
-    .root:hover button {
-        display: inline;
-    } */
-
     .trafficLight > span {
         width: 10px;
         height: 10px;
@@ -81,7 +48,7 @@
 
     .root :global(.shiki) {
         margin-top: 0.5em;
-        overflow-x: scroll;
+        overflow-x: auto;
     }
 
     :global(code) {

@@ -1,7 +1,7 @@
 <script>
     import Snippet from "../../components/Snippet.svelte";
 
-    let { name, description, repo, href, language, thumbnail, snippet } =
+    let { name, description, repo, href, thumbnail, snippet } =
         $props();
 </script>
 
@@ -20,12 +20,9 @@
     </p>
     <div class="showcase">
         {#if snippet}
-            <Snippet
-                --font-size="14px"
-                --width="100%"
-                {language}
-                code={snippet}
-            />
+            <Snippet --font-size="14px" --width="100%">
+                {@html snippet}
+            </Snippet>
         {:else if thumbnail}
             <img src={thumbnail} alt={`Project thumbnail for ${name}`} />
         {/if}
